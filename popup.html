@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popup Example</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+  }
+
+  #popup-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    z-index: 1000;
+  }
+
+  #popup-text {
+    font-size: 16px;
+    color: #333333;
+    margin-right: 10px;
+  }
+</style>
+</head>
+<body>
+    <h1>
+        this is afrah popup band oku in top side for 3 sec awaa
+        
+    </h1>
+<div id="popup-container">
+  <p id="popup-text">This is a professional-looking popup.</p>
+</div>
+<script>
+  // Hide the popup after 3 seconds
+  setTimeout(() => {
+    const popupContainer = document.getElementById('popup-container');
+    popupContainer.style.display = 'none';
+  }, 3000);
+</script>
+</body>
+</html>
