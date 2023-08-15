@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  min-height: 100vh;
+  background-color: papayawhip;
+}
+
+.btn {
+  background-color: #fa8072;
+  color: white;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25em;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  padding: 1em 2em;
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #f97263;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(50, 50, 50, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  outline:0;
+}
+
+.btn:focus-visible {
+  outline:2px solid #f97263;
+  outline-offset: 5px;
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 12px -2px inset rgba(50, 50, 50, 0.25);
+}
+
+    </style>
+</head>
+<body>
+    <button class="btn js-confetti">PRESS ME</button>
+<audio src="https://assets.codepen.io/1256430/whistle.mp3" id="sound" preload="auto" hidden></audio>
+
+
+<script>
+      /* confetti cannon effect made with: https://www.kirilv.com/canvas-confetti/ */
+
+const sound = document.getElementById("sound");
+const triggers = document.querySelectorAll(".js-confetti");
+const defaults = {
+  disableForReducedMotion: true
+};
+
+function fire(particleRatio, opts) {
+  confetti(
+    Object.assign({}, defaults, opts, {
+      particleCount: Math.floor(200 * particleRatio)
+    })
+  );
+}
+
+function confettiExplosion(origin) {
+  fire(0.25, {
+    spread: 26,
+    startVelocity: 55,
+    origin
+  });
+  fire(0.2, {
+    spread: 60,
+    origin
+  });
+  fire(0.35, {
+    spread: 100,
+    decay: 0.91,
+    origin
+  });
+  fire(0.1, {
+    spread: 120,
+    startVelocity: 25,
+    decay: 0.92,
+    origin
+  });
+  fire(0.1, {
+    spread: 120,
+    startVelocity: 45,
+    origin
+  });
+}
+
+Array.from(triggers).forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const rect = trigger.getBoundingClientRect();
+    const center = {
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2
+    };
+    const origin = {
+      x: center.x / window.innerWidth,
+      y: center.y / window.innerHeight
+    };
+
+    if (sound) {
+      sound.currentTime = 0;
+      sound.play();
+    }
+    confettiExplosion(origin);
+  });
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #celebration-effects {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      pointer-events: none;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.2.0"></script>
+</head>
+<body>
+  <button id="celebrate-button">Celebrate!</button>
+  <div id="celebration-effects"></div>
+  <script>
+    const celebrateButton = document.getElementById('celebrate-button');
+    const celebrationEffects = document.getElementById('celebration-effects');
+
+    celebrateButton.addEventListener('click', () => {
+      celebrationEffects.style.display = 'block';
+
+      // Start confetti effects
+      const confettiSettings = {
+        target: 'celebration-effects',
+        max: '100',
+        size: '1',
+        animate: true,
+        props: ['circle', 'square', 'triangle', 'line'],
+      };
+      const confetti = new ConfettiGenerator(confettiSettings);
+      confetti.render();
+
+      // Hide the celebration effects after a certain duration
+      setTimeout(() => {
+        celebrationEffects.style.display = 'none';
+        confetti.clear();
+      }, 5000); // Adjust the duration as needed
+    });
+  </script>
+</body>
+</html>
