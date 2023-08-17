@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Font Changer</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+    body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.container {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttons button {
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#textContainer {
+  margin-bottom: 20px;
+}
+
+
+/* Your existing CSS styles above */
+
+.odd-even-container {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.odd-even-container input {
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.odd-even-container button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+</style>
+</head>
+<body>
+    <div class="fullbox">
+    <div class="container">
+        <div id="textContainer">
+          <p id="displayText">Hello, Centered Text!</p>
+        </div>
+        <div class="buttons">
+          <button onclick="changeFontStyle('Arial')">Arial</button>
+          <button onclick="changeFontStyle('Times New Roman')">Times New Roman</button>
+          <button onclick="changeFontStyle('Courier New')">Courier New</button>
+          <button onclick="changeFontStyle('Lato')">Lato</button>
+        </div>
+      </div>
+      <br><br><br>
+      
+      <!-- New section for the odd/even checker -->
+      <div class="odd-even-container">
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <button onclick="checkOddEven()">Submit</button>
+      </div>
+    </div>
+      
+  <script>
+    function changeFontStyle(fontName) {
+      const textElement = document.getElementById('displayText');
+      textElement.style.fontFamily = fontName;
+    }
+
+    function checkOddEven() {
+      const numberInput = document.getElementById('numberInput').value;
+      if (numberInput === "") {
+        alert("Please enter a number.");
+        return;
+      }
+
+      const number = parseInt(numberInput);
+      if (isNaN(number)) {
+        alert("Invalid input. Please enter a valid number.");
+        return;
+      }
+
+      if (number % 2 === 0) {
+        alert(number + " is even.");
+      } else {
+        alert(number + " is odd.");
+      }
+    }
+  </script>
+</body>
+</html>
