@@ -1,66 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #3498db;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    #celebration-effects {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      pointer-events: none;
-    }
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.2.0"></script>
-</head>
-<body>
-  <button id="celebrate-button">Celebrate!</button>
-  <div id="celebration-effects"></div>
-  <script>
-    const celebrateButton = document.getElementById('celebrate-button');
-    const celebrationEffects = document.getElementById('celebration-effects');
-
-    celebrateButton.addEventListener('click', () => {
-      celebrationEffects.style.display = 'block';
-
-      // Start confetti effects
-      const confettiSettings = {
-        target: 'celebration-effects',
-        max: '100',
-        size: '1',
-        animate: true,
-        props: ['circle', 'square', 'triangle', 'line'],
-      };
-      const confetti = new ConfettiGenerator(confettiSettings);
-      confetti.render();
-
-      // Hide the celebration effects after a certain duration
-      setTimeout(() => {
-        celebrationEffects.style.display = 'none';
-        confetti.clear();
-      }, 5000); // Adjust the duration as needed
-    });
-  </script>
-</body>
-</html>
+<div class="container-fluid nav-bar bg-white">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4 onlyForPc" >
+              <a href="" class="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
+                  <h1 class="icon m-0"><img height="70px" src="./images/88632927277-removebg-preview.png" alt=""></h1>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                  <span class="fa fa-bars"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <div class="navbar-nav me-auto " style="text-align: center; ">
+                      <a href="index.html" class="nav-item nav-link active" style="font-size: 20px;">Home</a>
+                      <a href="about.html" class="nav-item nav-link " style="font-size: 20px;">About</a>
+                      <a href="service.html" class="nav-item nav-link" style="font-size: 20px;">Services</a>
+                      <div class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" style="font-size: 20px;">Pest Guide</a>
+                          <div class="dropdown-menu fade-up m-0">
+                              <a href="./termites.html" class="dropdown-item" style="font-size: 17px;">Termites</a>
+                              <a href="./ants_cockroach.html" class="dropdown-item" style="font-size: 17px;">Ants & Cockroaches</a>
+                              <a href="./rodents.html" class="dropdown-item" style="font-size: 17px;">Rodents</a>
+                              <a href="./bedbugs.html" class="dropdown-item" style="font-size: 17px;">Bedbugs</a>
+                              <a href="./mosquitoes.html" class="dropdown-item" style="font-size: 17px;">Mosquitoes</a>
+                              <a href="./lawn_tree.html" class="dropdown-item" style="font-size: 17px;">Lawn Care & Tree Treatment</a>
+                              <a href="./comercial.html" class="dropdown-item" style="font-size: 17px;">Commercial</a>
+                              <a href="./residential.html" class="dropdown-item" style="font-size: 17px;">Residential</a>
+                          </div>
+                      </div>
+                      <!-- <a href="./where_we.html" class="nav-item nav-link " style="font-size: 20px;">Where We Service</a> -->
+                      <a href="contact.html" class="nav-item nav-link " style="font-size: 20px;">Contact us</a>
+                  </div>
+                  <div class="mt-4 mt-lg-0 me-lg-n4 py-3 px-4  d-flex align-items-center">
+  
+                              <img id="img_logo" class="img_logo" style="margin-top: -40px;" src="./home pest and control logo long transparent.png" width="350px" alt="">
+                  </div>
+              </div>
+          </nav>
+      </div>
